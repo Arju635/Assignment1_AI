@@ -3,6 +3,17 @@ import torch.nn as nn
 
 # Task 1
 def light_pixels(image, lightness, channel):
+       #Mapping of channel names to indices
+       channel_idx={'red':0,'green':1,'blue':2}
+       # Validating the channel input
+       if channel not in channel_idx:
+              raise ValueError("Channel must be 'red','green',or'blue'.")
+       #Getting the channel index
+       color_map = channel_idx[channel]
+       #Counting the pixels greater than the lightness threshold
+       return np.sum(image[:, :, color_map]>lightness)
+       
+  
        """
        Given an image, return the number of pixels of the given channel whose intensity
        is higher than the number given in 'lightness'. Assume that the image is stored 
@@ -30,7 +41,7 @@ def light_pixels(image, lightness, channel):
        return None
 
 # Task 2
-def decompose_image(image, thresholds):
+#def decompose_image(image, thresholds):
        """
        Given a greyscale image and a list of intensity thresholds, return a list of masks.
        Each mask is a binary image where the pixel is 1 if the intensity of the
@@ -57,7 +68,7 @@ def decompose_image(image, thresholds):
        return None
 
 # Task 3
-def build_deep_nn(input_size, layer_options, output_size):
+#def build_deep_nn(input_size, layer_options, output_size):
        """Return a Torch neural model that has the following layers:
        - A sequence of hidden layers with ReLU activation functions; the 
          number of hidden layers is determined by the length of the 'layer_options' list.
