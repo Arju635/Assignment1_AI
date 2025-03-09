@@ -41,7 +41,11 @@ def light_pixels(image, lightness, channel):
        return None
 
 # Task 2
-#def decompose_image(image, thresholds):
+def decompose_image(image, thresholds):
+       #Creating a binary mask for each threshold,where pixels greater than the threshold are 1.
+       return [(image > threshold).astype(int) for threshold in thresholds]
+ 
+
        """
        Given a greyscale image and a list of intensity thresholds, return a list of masks.
        Each mask is a binary image where the pixel is 1 if the intensity of the

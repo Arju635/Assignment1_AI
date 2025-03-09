@@ -12,8 +12,8 @@ class TestBasic(unittest.TestCase):
         self.assertEqual(a1.light_pixels(image, 200, 'red'), 2)
         self.assertEqual(a1.light_pixels(image, 200, 'green'), 1)
         self.assertEqual(a1.light_pixels(image, 200, 'blue'), 3)
+ 
 
-    ##
 
 if __name__ == "__main__":
     unittest.main()
